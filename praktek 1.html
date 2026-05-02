@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Halo 👋</h1>
+    <p>Masukkan nama kamu:</p>
+    <input type="text" id="nama" placeholder="Nama kamu">
+    <br>
+    <button onclick="sapa()">Klik</button>
+    <h2 id="hasil"></h2>
+  </div>
+
+  <script>
+    function sapa() {
+      let nama = document.getElementById("nama").value;
+      let hasil = document.getElementById("hasil");
+
+      if (nama === "") {
+        hasil.innerText = "Isi dulu namanya!";
+      } else {
+        hasil.innerText = "Halo, " + nama + "!";
+      }
+    }
+  </script>
+
+</body>
+</html>

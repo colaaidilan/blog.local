@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study With Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #16141f, #211d35, #2f2649);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      position: relative;
+    }
+
+    /* Animated background bubbles */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      animation: float 12s infinite linear;
+      bottom: -100px;
+      backdrop-filter: blur(3px);
+    }
+
+    .bubble:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      left: 10%;
+      animation-duration: 13s;
+    }
+
+    .bubble:nth-child(2) {
+      width: 60px;
+      height: 60px;
+      left: 30%;
+      animation-duration: 10s;
+    }
+
+    .bubble:nth-child(3) {
+      width: 140px;
+      height: 140px;
+      left: 70%;
+      animation-duration: 15s;
+    }
+
+    .bubble:nth-child(4) {
+      width: 80px;
+      height: 80px;
+      left: 85%;
+      animation-duration: 11s;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      min-height: 600px;
+      border-radius: 35px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .left {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .tag {
+      width: fit-content;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      color: #ffd6ff;
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: 55px;
+      line-height: 1.1;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #ffb7ff, #cdb4ff, #bde0fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .desc {
+      color: #d8d6e8;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border: none;
+      padding: 14px 24px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s ease;
+      color: white;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #cdb4ff, #a0c4ff);
+      color: #1a1730;
+      font-weight: 600;
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(255,255,255,0.1);
+    }
+
+    .right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .study-card {
+      width: 320px;
+      padding: 35px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      margin: auto;
+      background: linear-gradient(135deg, #ffc8dd, #cdb4db, #bde0fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: bounce 3s infinite ease-in-out;
+      box-shadow: 0 0 30px rgba(255,255,255,0.15);
+    }
+
+    @keyframes bounce {
+      0%,100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .timer {
+      font-size: 55px;
+      margin: 15px 0;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .quote {
+      font-size: 14px;
+      color: #ddd;
+      margin-top: 10px;
+      line-height: 1.7;
+    }
+
+    .music {
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      font-size: 13px;
+      color: #f7eaff;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from {
+        opacity: 0.2;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media(max-width: 850px){
+      .container {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .left {
+        padding: 40px 30px 20px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .right {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+
+  <div class="stars">
+    <div class="star" style="top:10%; left:20%;"></div>
+    <div class="star" style="top:30%; left:70%;"></div>
+    <div class="star" style="top:60%; left:15%;"></div>
+    <div class="star" style="top:80%; left:50%;"></div>
+    <div class="star" style="top:20%; left:90%;"></div>
+    <div class="star" style="top:45%; left:35%;"></div>
+  </div>
+
+  <div class="container">
+
+    <div class="left">
+      <div class="tag">☾ study with me</div>
+
+      <h1>
+        Soft Night <br>
+        <span class="gradient">Study Space</span>
+      </h1>
+
+      <p class="desc">
+        A cozy little digital space for studying, focusing, and surviving assignments at midnight ✨
+      </p>
+
+      <div class="buttons">
+        <button class="btn primary" onclick="startTimer()">Start Focus</button>
+        <button class="btn secondary" onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="study-card">
+        <div class="avatar">📚</div>
+
+        <h2>Pomodoro Timer</h2>
+
+        <div class="timer" id="timer">25:00</div>
+
+        <p class="quote">
+          “Little progress is still progress.” 🌙
+        </p>
+
+        <div class="music">
+          🎵 currently playing: soft lofi night mix
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let time = 25 * 60;
+    let timerRunning = false;
+    let interval;
+
+    function updateDisplay() {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+
+      document.getElementById('timer').innerText =
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+      if(timerRunning) return;
+
+      timerRunning = true;
+
+      interval = setInterval(() => {
+        if(time > 0) {
+          time--;
+          updateDisplay();
+        } else {
+          clearInterval(interval);
+          timerRunning = false;
+          alert('Good job! Time to rest ✨');
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(interval);
+      timerRunning = false;
+      time = 25 * 60;
+      updateDisplay();
+    }
+  </script>
+
+</body>
+</html>
